@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .clock{
+            padding: 10px;
+            color: white;
+            font-size: 50px;
+            border: 3px solid ;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px,inset 0px 0px 10px;
+            text-shadow: 0px 0px 5px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <span id="hours">00</span>
+        <span>:</span>
+        <span id="minutes">00</span>
+        <span>:</span>
+        <span id="seconds">00</span>
+
+        <span id="session">AM</span>
+
+        <script>
+            function display(params) {
+                let date=new Date();
+
+                let h=date.getHours();
+                let m=date.getMinutes();
+                let s=date.getSeconds();
+
+                let session=document.getElementById('session')
+
+                document.getElementById('hours').innerHTML=h-12
+                document.getElementById('minutes').innerHTML=m
+                document.getElementById('seconds').innerHTML=s
+
+                if (h>=12) {
+                    session.innerHTML="PM"
+                }
+                else{
+                    session.innerHTML="AM"
+                }
+
+            }
+            setInterval(display,1000)
+        </script>
+    </div>
+</body>
+</html>
